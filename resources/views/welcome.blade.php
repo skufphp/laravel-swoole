@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }} · Octane + Swoole</title>
+    <title>Laravel Octane · Swoole</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet">
@@ -29,24 +29,6 @@
             flex-direction: column;
             padding: 1.5rem;
         }
-
-        .site-header {
-            width: 100%;
-            max-width: 335px;
-            margin: 0 auto 1.5rem;
-            font-size: 0.875rem;
-        }
-        .nav-links { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
-        .nav-link {
-            display: inline-block;
-            padding: 0.375rem 1.25rem;
-            border: 1px solid rgba(25,20,0,0.22);
-            border-radius: 0.125rem;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            transition: border-color 0.15s;
-        }
-        .nav-link:hover { border-color: rgba(25,21,1,0.29); }
 
         .main-wrapper {
             flex: 1;
@@ -214,27 +196,6 @@
         .compare-table tr:last-child td { border-bottom: none; }
         .compare-table .highlight { color: #f53003; font-weight: 500; }
 
-        .file-tree {
-            font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
-            font-size: 0.6875rem;
-            line-height: 1.7;
-            color: #1b1b18;
-            background: #f8f8f7;
-            border: 1px solid #e3e3e0;
-            border-radius: 0.375rem;
-            padding: 0.75rem 1rem;
-            overflow-x: auto;
-        }
-        .file-tree pre {
-            margin: 0;
-            padding: 0;
-            font-family: inherit;
-            font-size: inherit;
-            white-space: pre;
-        }
-        .file-tree .dir { color: #706f6c; }
-        .file-tree .comment { color: #a1a09a; }
-
         .services-list { display: flex; flex-direction: column; gap: 0.375rem; }
         .service-row {
             display: flex;
@@ -246,14 +207,6 @@
         }
         .service-row:last-child { border-bottom: none; }
         .service-name { font-weight: 500; flex: 1; }
-        .service-port {
-            font-family: ui-monospace, monospace;
-            font-size: 0.6875rem;
-            color: #706f6c;
-            background: #f0f0ee;
-            padding: 0.125rem 0.375rem;
-            border-radius: 0.25rem;
-        }
         .service-env {
             font-size: 0.6875rem;
             color: #a1a09a;
@@ -276,7 +229,6 @@
         .footer-link { color: #f53003; }
 
         @media (min-width: 1024px) {
-            .site-header { max-width: 56rem; }
             .main-inner { max-width: 56rem; flex-direction: row; }
             .hero-panel {
                 border-radius: 0 0.5rem 0.5rem 0;
@@ -299,8 +251,6 @@
 
         @media (prefers-color-scheme: dark) {
             body { background-color: #0a0a0a; color: #EDEDEC; }
-            .nav-link { color: #EDEDEC; border-color: #3E3E3A; }
-            .nav-link:hover { border-color: #62605b; }
             .hero-panel { background-color: #1D0002; }
             .hero-logo { color: #F61500; }
             .hero-title { color: #EDEDEC; }
@@ -318,11 +268,7 @@
             .compare-table th { color: #A1A09A; border-color: #3E3E3A; }
             .compare-table td { border-color: #2a2a28; color: #EDEDEC; }
             .compare-table .highlight { color: #FF4433; }
-            .file-tree { background: #111110; border-color: #3E3E3A; color: #EDEDEC; }
-            .file-tree .dir { color: #A1A09A; }
-            .file-tree .comment { color: #62605b; }
             .service-row { border-color: #2a2a28; }
-            .service-port { color: #A1A09A; background: #2a2a28; }
             .service-env { color: #62605b; }
             .divider { background: #3E3E3A; }
             .site-footer { color: #62605b; }
@@ -335,21 +281,6 @@
     @endif
 </head>
 <body>
-<header class="site-header">
-    @if (Route::has('login'))
-        <nav class="nav-links">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="nav-link" style="border-color: transparent;">Log in</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="nav-link">Register</a>
-                @endif
-            @endauth
-        </nav>
-    @endif
-</header>
-
 <div class="main-wrapper">
     <div class="main-inner">
         <div class="content-panel">
@@ -360,7 +291,7 @@
                     <div class="stack-item"><div class="stack-icon orange">O</div><span>Octane 2.x</span></div>
                     <div class="stack-item"><div class="stack-icon purple">SW</div><span>Swoole</span></div>
                     <div class="stack-item"><div class="stack-icon blue">PHP</div><span>PHP 8.5</span></div>
-                    <div class="stack-item"><div class="stack-icon green">PG</div><span>PostgreSQL 18.2</span></div>
+                    <div class="stack-item"><div class="stack-icon green">PG</div><span>PostgreSQL 18</span></div>
                     <div class="stack-item"><div class="stack-icon red">R</div><span>Redis 8.6</span></div>
                 </div>
             </div>
@@ -373,34 +304,36 @@
                     <div class="service-row">
                         <span class="badge-dot red"></span>
                         <span class="service-name">Laravel Octane · Swoole</span>
-                        <span class="service-port">:8000</span>
-                        <span class="service-env">APP_PORT (по умолчанию 8050)</span>
-                    </div>
-                    <div class="service-row">
-                        <span class="badge-dot blue"></span>
-                        <span class="service-name">Node.js 24 · Vite HMR</span>
-                        <span class="service-port">:5173</span>
-                        <span class="service-env">dev only</span>
+                        <span class="service-env">HTTP сервер</span>
                     </div>
                     <div class="service-row">
                         <span class="badge-dot green"></span>
                         <span class="service-name">PostgreSQL 18.2 Alpine</span>
-                        <span class="service-port">:5432</span>
+                        <span class="service-env">база данных</span>
                     </div>
                     <div class="service-row">
                         <span class="badge-dot red"></span>
                         <span class="service-name">Redis 8.6 Alpine</span>
-                        <span class="service-port">:6379</span>
+                        <span class="service-env">кэш · очереди · сессии</span>
                     </div>
                     <div class="service-row">
                         <span class="badge-dot orange"></span>
-                        <span class="service-name">Queue Worker + Scheduler</span>
-                        <span class="service-env">background workers</span>
+                        <span class="service-name">Queue Worker</span>
+                        <span class="service-env">фоновые задачи</span>
+                    </div>
+                    <div class="service-row">
+                        <span class="badge-dot orange"></span>
+                        <span class="service-name">Scheduler</span>
+                        <span class="service-env">cron · каждые 60 сек</span>
+                    </div>
+                    <div class="service-row">
+                        <span class="badge-dot blue"></span>
+                        <span class="service-name">Node.js 24 · Vite HMR</span>
+                        <span class="service-env">dev only</span>
                     </div>
                     <div class="service-row">
                         <span class="badge-dot purple"></span>
                         <span class="service-name">pgAdmin</span>
-                        <span class="service-port">:8080</span>
                         <span class="service-env">dev only</span>
                     </div>
                 </div>
@@ -420,24 +353,24 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Контейнеры рантайма</td>
+                        <td>Контейнеры</td>
                         <td>2 (Nginx + PHP-FPM)</td>
                         <td class="highlight">1 (Swoole HTTP Server)</td>
                     </tr>
                     <tr>
-                        <td>Обработка запроса</td>
+                        <td>Протокол</td>
                         <td>FastCGI</td>
                         <td class="highlight">Встроенный HTTP сервер</td>
                     </tr>
                     <tr>
-                        <td>Bootstrap Laravel</td>
-                        <td>На каждый запрос</td>
-                        <td class="highlight">Один раз на воркер</td>
+                        <td>Модель</td>
+                        <td>Процесс на запрос</td>
+                        <td class="highlight">Persistent workers</td>
                     </tr>
                     <tr>
-                        <td>Модель выполнения</td>
-                        <td>Запрос-ориентированная</td>
-                        <td class="highlight">Persistent workers</td>
+                        <td>Bootstrap</td>
+                        <td>На каждый запрос</td>
+                        <td class="highlight">Один раз</td>
                     </tr>
                     </tbody>
                 </table>
@@ -445,21 +378,6 @@
 
             <div class="divider"></div>
 
-            <div class="section">
-                <div class="section-title">Структура проекта</div>
-                <div class="file-tree"><pre>
-<span class="dir">├── docker/</span>
-│   ├── php.Dockerfile          <span class="comment"># PHP 8.5 + Swoole (dev/prod stages)</span>
-│   └── php/
-│       ├── php.ini             <span class="comment"># development</span>
-│       └── php.prod.ini        <span class="comment"># production</span>
-<span class="dir">├── docker-compose.yml</span>          <span class="comment"># dev stack</span>
-<span class="dir">├── docker-compose.prod.local.yml</span> <span class="comment"># prod local run</span>
-<span class="dir">├── docker-compose.prod.yml</span>     <span class="comment"># prod template stack</span>
-<span class="dir">├── Makefile</span>                    <span class="comment"># команды управления средой</span>
-└── composer.json               <span class="comment"># Laravel 13 + Octane</span>
-</pre></div>
-            </div>
         </div>
 
         <div class="hero-panel">
