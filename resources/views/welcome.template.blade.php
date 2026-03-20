@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }} · Octane + Swoole</title>
+    <title>Laravel Octane · RoadRunner</title>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+    <!-- Styles -->
     <style>
         *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; }
         html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; }
@@ -30,6 +32,7 @@
             padding: 1.5rem;
         }
 
+        /* Header */
         .site-header {
             width: 100%;
             max-width: 335px;
@@ -48,6 +51,7 @@
         }
         .nav-link:hover { border-color: rgba(25,21,1,0.29); }
 
+        /* Main layout */
         .main-wrapper {
             flex: 1;
             display: flex;
@@ -62,6 +66,7 @@
             max-width: 335px;
         }
 
+        /* Hero panel */
         .hero-panel {
             background-color: #fff2f2;
             border-radius: 0.5rem 0.5rem 0 0;
@@ -120,8 +125,7 @@
             color: #1b1b18;
         }
         .badge-dot {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 9999px;
             background-color: #f53003;
             flex-shrink: 0;
@@ -140,6 +144,7 @@
             pointer-events: none;
         }
 
+        /* Content panel */
         .content-panel {
             font-size: 0.8125rem;
             line-height: 1.5385;
@@ -151,6 +156,7 @@
             order: 1;
         }
 
+        /* Section */
         .section { margin-bottom: 1.75rem; }
         .section:last-child { margin-bottom: 0; }
         .section-title {
@@ -162,6 +168,7 @@
             margin-bottom: 0.75rem;
         }
 
+        /* Stack grid */
         .stack-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -180,12 +187,9 @@
             color: #1b1b18;
         }
         .stack-icon {
-            width: 1.25rem;
-            height: 1.25rem;
+            width: 1.25rem; height: 1.25rem;
             border-radius: 0.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-size: 0.625rem;
             font-weight: 700;
             flex-shrink: 0;
@@ -196,6 +200,7 @@
         .stack-icon.green { background: #dcfce7; color: #16a34a; }
         .stack-icon.purple { background: #f3e8ff; color: #9333ea; }
 
+        /* Comparison table */
         .compare-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
         .compare-table th {
             text-align: left;
@@ -214,6 +219,7 @@
         .compare-table tr:last-child td { border-bottom: none; }
         .compare-table .highlight { color: #f53003; font-weight: 500; }
 
+        /* File tree */
         .file-tree {
             font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
             font-size: 0.6875rem;
@@ -225,16 +231,11 @@
             padding: 0.75rem 1rem;
             overflow-x: auto;
         }
-        .file-tree pre {
-            margin: 0;
-            padding: 0;
-            font-family: inherit;
-            font-size: inherit;
-            white-space: pre;
-        }
+        .file-tree pre { margin: 0; padding: 0; font-family: inherit; font-size: inherit; white-space: pre; }
         .file-tree .dir { color: #706f6c; }
         .file-tree .comment { color: #a1a09a; }
 
+        /* Services list */
         .services-list { display: flex; flex-direction: column; gap: 0.375rem; }
         .service-row {
             display: flex;
@@ -259,12 +260,14 @@
             color: #a1a09a;
         }
 
+        /* Divider */
         .divider {
             height: 1px;
             background: #e3e3e0;
             margin: 1.5rem 0;
         }
 
+        /* Footer */
         .site-footer {
             width: 100%;
             max-width: 335px;
@@ -275,6 +278,7 @@
         }
         .footer-link { color: #f53003; }
 
+        /* Responsive */
         @media (min-width: 1024px) {
             .site-header { max-width: 56rem; }
             .main-inner { max-width: 56rem; flex-direction: row; }
@@ -352,35 +356,52 @@
 
 <div class="main-wrapper">
     <div class="main-inner">
+
+        <!-- Content panel -->
         <div class="content-panel">
+
+            <!-- Stack -->
             <div class="section">
                 <div class="section-title">Технологический стек</div>
                 <div class="stack-grid">
-                    <div class="stack-item"><div class="stack-icon red">L</div><span>Laravel 13</span></div>
-                    <div class="stack-item"><div class="stack-icon orange">O</div><span>Octane 2.x</span></div>
-                    <div class="stack-item"><div class="stack-icon purple">SW</div><span>Swoole</span></div>
-                    <div class="stack-item"><div class="stack-icon blue">PHP</div><span>PHP 8.5</span></div>
-                    <div class="stack-item"><div class="stack-icon green">PG</div><span>PostgreSQL 18.2</span></div>
-                    <div class="stack-item"><div class="stack-icon red">R</div><span>Redis 8.6</span></div>
+                    <div class="stack-item">
+                        <div class="stack-icon red">L</div>
+                        <span>Laravel 12</span>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon orange">O</div>
+                        <span>Octane</span>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon purple">RR</div>
+                        <span>RoadRunner</span>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon blue">PHP</div>
+                        <span>PHP 8.5</span>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon green">PG</div>
+                        <span>PostgreSQL 18</span>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon red">R</div>
+                        <span>Redis 8.6</span>
+                    </div>
                 </div>
             </div>
 
             <div class="divider"></div>
 
+            <!-- Services -->
             <div class="section">
                 <div class="section-title">Сервисы Docker</div>
                 <div class="services-list">
                     <div class="service-row">
                         <span class="badge-dot red"></span>
-                        <span class="service-name">Laravel Octane · Swoole</span>
+                        <span class="service-name">RoadRunner · Laravel Octane</span>
                         <span class="service-port">:8000</span>
-                        <span class="service-env">APP_PORT (по умолчанию 8050)</span>
-                    </div>
-                    <div class="service-row">
-                        <span class="badge-dot blue"></span>
-                        <span class="service-name">Node.js 24 · Vite HMR</span>
-                        <span class="service-port">:5173</span>
-                        <span class="service-env">dev only</span>
+                        <span class="service-port">:2114</span>
                     </div>
                     <div class="service-row">
                         <span class="badge-dot green"></span>
@@ -393,9 +414,10 @@
                         <span class="service-port">:6379</span>
                     </div>
                     <div class="service-row">
-                        <span class="badge-dot orange"></span>
-                        <span class="service-name">Queue Worker + Scheduler</span>
-                        <span class="service-env">background workers</span>
+                        <span class="badge-dot blue"></span>
+                        <span class="service-name">Node.js · Vite HMR</span>
+                        <span class="service-port">:5173</span>
+                        <span class="service-env">dev only</span>
                     </div>
                     <div class="service-row">
                         <span class="badge-dot purple"></span>
@@ -408,36 +430,37 @@
 
             <div class="divider"></div>
 
+            <!-- Comparison -->
             <div class="section">
-                <div class="section-title">Nginx + PHP-FPM vs Octane + Swoole</div>
+                <div class="section-title">Nginx + PHP-FPM vs RoadRunner</div>
                 <table class="compare-table">
                     <thead>
                     <tr>
                         <th>Аспект</th>
                         <th>Nginx + PHP-FPM</th>
-                        <th class="highlight">Octane + Swoole</th>
+                        <th class="highlight">RoadRunner</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Контейнеры рантайма</td>
+                        <td>Контейнеры</td>
                         <td>2 (Nginx + PHP-FPM)</td>
-                        <td class="highlight">1 (Swoole HTTP Server)</td>
+                        <td class="highlight">1 (RoadRunner)</td>
                     </tr>
                     <tr>
-                        <td>Обработка запроса</td>
-                        <td>FastCGI</td>
-                        <td class="highlight">Встроенный HTTP сервер</td>
+                        <td>Протокол</td>
+                        <td>FastCGI / Unix socket</td>
+                        <td class="highlight">Встроенный HTTP</td>
                     </tr>
                     <tr>
-                        <td>Bootstrap Laravel</td>
-                        <td>На каждый запрос</td>
-                        <td class="highlight">Один раз на воркер</td>
-                    </tr>
-                    <tr>
-                        <td>Модель выполнения</td>
-                        <td>Запрос-ориентированная</td>
+                        <td>Модель</td>
+                        <td>Процесс на запрос</td>
                         <td class="highlight">Persistent workers</td>
+                    </tr>
+                    <tr>
+                        <td>Bootstrap</td>
+                        <td>На каждый запрос</td>
+                        <td class="highlight">Один раз</td>
                     </tr>
                     </tbody>
                 </table>
@@ -445,23 +468,26 @@
 
             <div class="divider"></div>
 
+            <!-- File structure -->
             <div class="section">
                 <div class="section-title">Структура проекта</div>
                 <div class="file-tree"><pre>
 <span class="dir">├── docker/</span>
-│   ├── php.Dockerfile          <span class="comment"># PHP 8.5 + Swoole (dev/prod stages)</span>
+│   ├── php.Dockerfile          <span class="comment"># dev + production</span>
 │   └── php/
-│       ├── php.ini             <span class="comment"># development</span>
+│       ├── php.ini             <span class="comment"># dev</span>
 │       └── php.prod.ini        <span class="comment"># production</span>
+<span class="dir">├── .rr.yaml</span>                    <span class="comment"># RoadRunner config</span>
 <span class="dir">├── docker-compose.yml</span>          <span class="comment"># dev stack</span>
-<span class="dir">├── docker-compose.prod.local.yml</span> <span class="comment"># prod local run</span>
-<span class="dir">├── docker-compose.prod.yml</span>     <span class="comment"># prod template stack</span>
-<span class="dir">├── Makefile</span>                    <span class="comment"># команды управления средой</span>
-└── composer.json               <span class="comment"># Laravel 13 + Octane</span>
+<span class="dir">├── docker-compose.prod.yml</span>     <span class="comment"># production stack</span>
+<span class="dir">├── Makefile</span>                    <span class="comment"># команды управления</span>
+└── SETUP.md                    <span class="comment"># инструкция</span>
 </pre></div>
             </div>
+
         </div>
 
+        <!-- Hero panel -->
         <div class="hero-panel">
             <svg class="hero-logo" viewBox="0 0 438 104" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.2036 -3H0V102.197H49.5189V86.7187H17.2036V-3Z" fill="currentColor" />
@@ -472,22 +498,25 @@
                 <path d="M324.49 32.1665L303.995 85.794L283.498 32.1665H266.983L293.748 102.197H314.242L341.006 32.1665H324.49Z" fill="currentColor" />
                 <path d="M376.571 30.3656C356.603 30.3656 340.797 46.8497 340.797 67.1828C340.797 89.6597 356.094 104 378.661 104C391.29 104 399.354 99.1488 409.206 88.5848L398.189 80.0226C398.183 80.031 389.874 90.9895 377.468 90.9895C363.048 90.9895 356.977 79.3111 356.977 73.269H411.075C413.917 50.1328 398.775 30.3656 376.571 30.3656ZM357.02 61.0967C357.145 59.7487 359.023 43.3761 376.442 43.3761C393.861 43.3761 395.978 59.7464 396.099 61.0967H357.02Z" fill="currentColor" />
             </svg>
+
             <div class="hero-badge">
-                <div class="hero-title">Octane · Swoole</div>
-                <div class="hero-subtitle">High-performance Laravel на persistent workers</div>
+                <div class="hero-title">Octane · RoadRunner</div>
+                <div class="hero-subtitle">High-performance Laravel on persistent workers</div>
                 <div class="version-badges">
                     <span class="badge"><span class="badge-dot orange"></span>PHP 8.5</span>
-                    <span class="badge"><span class="badge-dot purple"></span>Swoole</span>
+                    <span class="badge"><span class="badge-dot purple"></span>RoadRunner</span>
                     <span class="badge"><span class="badge-dot green"></span>Docker</span>
                 </div>
             </div>
+
             <div class="hero-inset"></div>
         </div>
+
     </div>
 </div>
 
 <footer class="site-footer">
-    Laravel Octane + Swoole · <a href="https://laravel.com/docs/13.x/octane" class="footer-link">laravel.com/docs/octane</a>
+    Laravel Octane + RoadRunner &mdash; <a href="https://laravel-roadrunner.skufphp.com/" class="footer-link">laravel-roadrunner.skufphp.com</a>
 </footer>
 </body>
 </html>
