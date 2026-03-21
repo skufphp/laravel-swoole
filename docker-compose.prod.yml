@@ -50,6 +50,7 @@ services:
       dockerfile: docker/php.Dockerfile
       target: production
     image: laravel-swoole:latest
+    pull_policy: never
     container_name: laravel-swoole
     restart: unless-stopped
     environment:
