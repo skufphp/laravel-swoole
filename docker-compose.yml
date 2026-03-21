@@ -8,6 +8,7 @@ services:
       args:
         INSTALL_XDEBUG: "true"
     image: laravel-swoole:dev
+    pull_policy: never
     container_name: laravel-swoole
     restart: unless-stopped
     working_dir: /var/www/laravel
