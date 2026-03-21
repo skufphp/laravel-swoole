@@ -134,11 +134,18 @@ COPY --from=frontend-build /app/public/build /var/www/laravel/public/build
 # Перегенерируем autoload и запускаем package:discover один раз
 RUN rm -rf bootstrap/cache/*.php \
     && rm -rf storage/framework/cache/data/* \
+    && mkdir -p \
+      bootstrap/cache \
+      storage/logs \
+      storage/framework/cache/data \
+      storage/framework/sessions \
+      storage/framework/views \
     && composer dump-autoload --optimize --no-dev --classmap-authoritative --no-scripts \
     && php artisan package:discover --ansi
 
 # Назначаем права и переключаемся на www-data
-RUN chown -R www-data:www-data /var/www/laravel
+RUN chown -R www-data:www-data /var/www/laravel \
+    && chmod -R ug+rwX storage bootstrap/cache
 USER www-data
 
 CMD ["php", "artisan", "octane:start", "--server=swoole", "--host=0.0.0.0", "--port=8000"]

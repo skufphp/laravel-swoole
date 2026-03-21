@@ -55,6 +55,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Octane State File
+    |--------------------------------------------------------------------------
+    |
+    | Octane stores process IDs and runtime server state in this file. Keeping
+    | it under storage/framework avoids coupling runtime state to log storage.
+    |
+    */
+
+    'state_file' => env('OCTANE_STATE_FILE', storage_path('framework/octane-server-state.json')),
+
+    /*
+    |--------------------------------------------------------------------------
     | Octane Listeners
     |--------------------------------------------------------------------------
     |
