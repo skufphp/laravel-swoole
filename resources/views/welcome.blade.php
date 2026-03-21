@@ -355,7 +355,7 @@
                     <tr>
                         <td>Контейнеры</td>
                         <td>2 (Nginx + PHP-FPM)</td>
-                        <td class="highlight">1 (Swoole HTTP Server)</td>
+                        <td class="highlight">1 (Swoole HTTP server)</td>
                     </tr>
                     <tr>
                         <td>Протокол</td>
@@ -392,7 +392,7 @@
             </svg>
             <div class="hero-badge">
                 <div class="hero-title">Octane · Swoole</div>
-                <div class="hero-subtitle">High-performance Laravel на persistent workers</div>
+                <div class="hero-subtitle">High-performance Laravel with persistent workers</div>
                 <div class="version-badges">
                     <span class="badge"><span class="badge-dot orange"></span>PHP 8.5</span>
                     <span class="badge"><span class="badge-dot purple"></span>Swoole</span>
