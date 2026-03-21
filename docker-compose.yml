@@ -85,7 +85,7 @@ services:
     image: redis:8.6-alpine
     container_name: laravel-redis-sw
     restart: unless-stopped
-    command: [ "redis-server", "--appendonly", "yes" ]
+    command: [ "redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:-}" ]
     volumes:
       - redis-data:/data
     ports:
@@ -93,7 +93,7 @@ services:
     networks:
       - laravel-swoole-network
     healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
+      test: [ "CMD", "sh", "-c", "redis-cli -a \"${REDIS_PASSWORD:-}\" ping || redis-cli ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
